@@ -4,43 +4,60 @@ from typing import Dict
 
 #import proj07Demo
 
-dictM = {"" : {""}}
+#Declare globale dictionary
+moviesDict = {}
 
 
+#Function that takes an input line and retures the actor
 def getActor(inputStr):
+    #Split input line by a "," and convert it into an array
     inputArr = inputStr.split(",")
-
+    
+    #Return the first element of the array which is the actor
     return inputArr[0]
 
+#Function that takes an input line and retures all movies in an array
 def getMovies(inputStr):
-    inputArr = inputStr.split(",")
+    #Split input line by a ", " and convert it into an array, thereby already eliminate the space after the ","
+    inputArr = inputStr.split(", ")
+    #Erase the Actor which is the first element of the array
     del inputArr[0]
-    return inputArr
+    movies = []
+    #Loop through the array and earse all \n etc.
+    for movie in inputArr:
+        movies.append(movie.strip())
+    return movies
+    
+    
+
 
 
 def addMoviesToDictionary(actor, movies):
-    
-    keys = dictM.keys()
+    #Get all the keys from the dictionary    
+    keys = moviesDict.keys()
 
+    #Loop through all movies that are in the passed line
     for movie in movies:
+        #Check if the current movie was already added to the dictionary
         if movie in keys:
-            newActors = dictM[movie].add(actor)
-            dictM.update({movie : newActors })
-            print(movie + "is in the set \n")       
+            #If yes, add the passed actor to the set of actors of the current movie
+            moviesDict[movie].add(actor)
         else:
-            dictM[movie] = {actor}
+            #If not, add the movie to the dictionary with the passed actor in a set
+            moviesDict[movie] = {actor}
 
-   # print("Movies and actors added \n")
+
 
 def readFile():
+    #read the file
     f = open("movies.txt", "r")
     
+    #Go through each line in the file and add the data to the dictionary
     for x in f:
         actor = getActor(x)
-       # print(actor + "\n")
         movies = getMovies(x)
-        #print(str(movies) + "\n")
         addMoviesToDictionary(actor, movies)
-        print(dictM)
+        
+    print(moviesDict)
 
 readFile()
