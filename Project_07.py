@@ -7,6 +7,29 @@ from typing import Dict
 #Declare globale dictionary
 moviesDict = {}
 
+#Ask user what he or she would like to do (two options provided)
+userinput1 = int(input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'"))
+
+#Define the two possible answers asked for as variables 
+mov_str = ['Movies']
+act_str = ['Actors']
+
+#If user wants to continue with 'Movies' further input is needed and therefore requested
+userinput2 = int(input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies."))
+
+#If user wants to continue with 'Actors' further input is needed and therefore requested
+userinput3 = int(input("Provide the names of two actors (first and last name). Seperate the actor's names by a comma."))
+
+#Check with an if-function what the user would like to do next and provide the output
+print(userinput1)
+if userinput1 = mov_str
+    print(userinput2)
+
+else
+
+#getCoactors()
+
+
 
 #Function that takes an input line and retures the actor
 def getActor(inputStr):
