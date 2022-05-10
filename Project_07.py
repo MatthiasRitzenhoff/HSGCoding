@@ -2,32 +2,32 @@
 # run the proj07 demo project
 from typing import Dict
 
-#import proj07Demo
+
+##ToDo
+#Add input out comment for functions
+#Style user output
+#Add UI
+
 
 #Declare globale dictionary
 moviesDict = {}
 
-#Ask user what he or she would like to do (two options provided)
-userinput1 = int(input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'"))
 
-#Define the two possible answers asked for as variables 
-mov_str = ['Movies']
-act_str = ['Actors']
+#Function that asks for the user imput, calls the corresponding functions to generate the output and prints the output to the user
+def handleUserInput():
+    #Ask user what he or she would like to do (two options provided)
+    menuSelection = input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'")
 
-#If user wants to continue with 'Movies' further input is needed and therefore requested
-userinput2 = int(input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies."))
+    if menuSelection == "Movies":
+        #If user wants to continue with 'Movies' further input is needed and therefore requested
+        movies = input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies.")
+        print("The involved actors are: " + str(handleOptionA(movies)))
+        
+    else:
+        #If user wants to continue with 'Actors' further input is needed and therefore requested
+        actor = input("Provide the names of two actors (first and last name). Seperate the actor's names by a comma.")
+        print(actor + " acted togehter with " + str(handleOptionB(actor)))
 
-#If user wants to continue with 'Actors' further input is needed and therefore requested
-userinput3 = int(input("Provide the names of two actors (first and last name). Seperate the actor's names by a comma."))
-
-#Check with an if-function what the user would like to do next and provide the output
-print(userinput1)
-if userinput1 = mov_str
-    print(userinput2)
-
-else
-
-#getCoactors()
 
 
 
@@ -51,10 +51,8 @@ def getMovies(inputStr):
         movies.append(movie.strip())
     return movies
     
-    
 
-
-
+#Fuction that adds the passed actor and movies to the dictionary
 def addMoviesToDictionary(actor, movies):
     #Get all the keys from the dictionary    
     keys = moviesDict.keys()
@@ -70,7 +68,7 @@ def addMoviesToDictionary(actor, movies):
             moviesDict[movie] = {actor}
 
 
-
+#Function that reads the file and stores the data in the dictionary
 def readFile():
     #read the file
     f = open("movies.txt", "r")
@@ -81,6 +79,60 @@ def readFile():
         movies = getMovies(x)
         addMoviesToDictionary(actor, movies)
         
-    print(moviesDict)
+    #print(moviesDict)
 
-readFile()
+#Function that is call when the user wants to have the actors that acted in specific movies
+def handleOptionA(userInput):
+    #Seperate the user input into the three parts First Movie, Operator, Second Movie
+    inputArr = inputArr = userInput.split(" ")
+    fstMovie = inputArr[0]
+    sndMovie = inputArr[2]
+    operator = inputArr[1]
+
+    #Get all actors that acted in each of the two movies
+    actorsMovieOne = moviesDict[fstMovie]
+    actorsMovieTwo = moviesDict[sndMovie]
+
+    #Execute the logical operators
+    if operator == "&":
+        return (actorsMovieOne & actorsMovieTwo)
+    elif operator == "|":
+        return (actorsMovieOne | actorsMovieTwo)
+    elif operator == "^":
+        return (actorsMovieOne ^ actorsMovieTwo)
+    else:
+        print(operator + " is not a valid operator. Please use ],| or ^")
+        return "Invalid Entry"
+
+
+#Function that is called when the user wants have all actors that acted with the actor that was beeing passed
+def handleOptionB(actor):
+    #Define a set that will capture the output, thereby, all dublicates will be elminated automatically (property of a set)
+    result = set()
+
+    #Loop through every movie in the dictionary and capture all actors
+    for movie in moviesDict.keys():
+        #Store all actors for the correspoding movie in a variable
+        curentActors = moviesDict[movie]
+
+        #Check if the Actor that was passed by the user is in the list of all actors that acted in the current movie 
+        if actor in curentActors:
+            #Use the OR operator to combine the current result set and the set of all actors
+            result = (result | curentActors)
+    
+    #Remove the actor that was passed by the user from the current set
+    result.remove(actor)
+
+    return result
+
+
+#Main function that is called when the programm is run
+def main ():
+    #Call function to the file and story the data in a dictionary
+    readFile()
+
+    #Call a function to ask the user for the input and handle the results
+    handleUserInput()
+
+
+main()
