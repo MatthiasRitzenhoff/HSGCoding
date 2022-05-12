@@ -25,7 +25,7 @@ def handleUserInput():
         
     else:
         #If user wants to continue with 'Actors' further input is needed and therefore requested
-        actor = input("Provide the names of two actors (first and last name). Seperate the actor's names by a comma.")
+        actor = input("Enter an actor's (first and last) name to display his or her co-actors.")
         print(actor + " acted togehter with " + str(handleOptionB(actor)))
 
 

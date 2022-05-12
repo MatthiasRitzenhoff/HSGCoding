@@ -5,7 +5,7 @@ from tkinter import *
 root = Tk()
 
 # Adjust size
-root.geometry( "200x200" )
+root.geometry("200x200")
 
 # Change the label text
 def show():
