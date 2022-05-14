@@ -15,6 +15,7 @@ moviesDict = {}
 
 #Function that asks for the user imput, calls the corresponding functions to generate the output and prints the output to the user
 def handleUserInput():
+
     #Ask user what he or she would like to do (two options provided)
     menuSelection = input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'")
 
