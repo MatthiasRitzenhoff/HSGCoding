@@ -1,6 +1,8 @@
 #Import the required Libraries
 from tkinter import *
 
+nameOfActor = ""
+
 #Main
 window = Tk()
 window.title("Who's Who in Hollywood (Project 7)")

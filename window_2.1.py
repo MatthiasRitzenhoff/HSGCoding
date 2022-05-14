@@ -2,6 +2,10 @@
 from tkinter import *
 from tkinter import ttk
 
+nameOfFstMovie = ""
+operator = ""
+nameOfSndMovie = ""
+
 #Main
 window = Tk()
 window.title("Who's Who in Hollywood (Project 7)")
