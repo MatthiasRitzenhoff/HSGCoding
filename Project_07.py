@@ -2,8 +2,8 @@
 # run the proj07 demo project
 #from typing import Dict
 #from window_1 import startFirstWindow
-from window_1 import *
-from window_2_1 import *
+#sfrom window_1 import startFirstWindow
+
 
 ##ToDo
 #Add input out comment for functions
@@ -17,15 +17,12 @@ moviesDict = {}
 
 #Function that asks for the user imput, calls the corresponding functions to generate the output and prints the output to the user
 def handleUserInput():
-    #startFirstWindow()
-    startMoviesWindow()
-    print(nameOfFstMovie)
-    #@Vanessa: added this print statement
+    
 
     #Ask user what he or she would like to do (two options provided)
     menuSelection = input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'")
-
-    if menuSelection == "Movies":
+    #startFirstWindow()
+    if menuSelection == "movies":
         #If user wants to continue with 'Movies' further input is needed and therefore requested
         movies = input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies.")
         print("The involved actors are: " + str(handleOptionA(movies)))
@@ -91,6 +88,7 @@ def readFile():
 #Function that is call when the user wants to have the actors that acted in specific movies
 def handleOptionA(userInput):
     #Seperate the user input into the three parts First Movie, Operator, Second Movie
+    print("Handelling the input: " + userInput)
     inputArr = inputArr = userInput.split(" ")
     fstMovie = inputArr[0]
     sndMovie = inputArr[2]
@@ -139,7 +137,7 @@ def main ():
     readFile()
 
     #Call a function to ask the user for the input and handle the results
-    handleUserInput()
+    #handleUserInput()
 
 
 main()
