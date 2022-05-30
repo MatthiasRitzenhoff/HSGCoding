@@ -1,8 +1,8 @@
+##The Services class provides the basic functionality which are used when running the programm eihter trough the terminal or through the User Interface, e.g. reading out the data, created teh dictionary etc.
+
 
 #Declare globale dictionary
 moviesDict = {}
-
-
 
 
 
@@ -97,34 +97,38 @@ def handleOptionB(actor):
 
 #Function that returns all movies that are in the dictionary
 def getAllMovies():
+    #Initialize a counter that helps to format the ouput string
     cntr = 1
     returnStr = ""
+    #Loop through all movies (=keys of the dictionary) and add a new line after every 8th movie so that it is displayed nicer in the UI
     for x in moviesDict.keys():
         returnStr += x + ", "
         cntr+= 1
         if cntr%8 == 0:
             returnStr += "\n"
-    
+    #Return the formated string and cut of the last to char wich are ',' and ' '
     return returnStr[:-2]
 
 #Function that returns all Actors that are in the dictionary
 def getAllActors():
+    
     cntr = 1
     returnStr = ""
     
     helpSet = set()
-
+    #Add all actors (=values in the Dictionary) to one big set
     for x in list(moviesDict.values()):
         for y in x:
             helpSet.add(y)    
         
-    
+    #Loop thorugh the earlier created set of all actors and add them to a formated string
     for x in helpSet:
         returnStr += x + ", "
         cntr+= 1
+        #Add a new line after every 8th movie so that it is displayed nicer in the UI
         if cntr%8 == 0:
             returnStr += "\n"
-    
+    #Return the formated string and cut of the last to char wich are ',' and ' '
     return returnStr[:-2]
 
 

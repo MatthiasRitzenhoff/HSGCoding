@@ -1,13 +1,14 @@
+##This class provides Window when the user selected the second optionen
+
 #Import the required Libraries
 from tkinter import *
 from services import *
 from result_Window import *
 
-nameOfActor = ""
 
 def startActorsWindow():
 
-    #Main
+    #Creat the main window
     window = Tk()
     window.title("Who's Who in Hollywood")
     window.configure(background="White")
@@ -27,16 +28,16 @@ def startActorsWindow():
     fstInput=Entry(window, width=50, bg="White")
     fstInput.grid(row=4, column=0)
 
+    #Function that is called the button is pressed and handels the user input
     def evaluateInput():
+        #Get data from the input fields
         actorName = fstInput.get()
+
+        #Create and format output strings
         resultStr = actorName + "'s co-actors are: \n"
         result = handleOptionB(actorName)
 
         startMoviesResultWindow(resultStr, result)
-
-        
-
-
 
     Button(window, text="Submit", width=6, command = evaluateInput).grid(row=13, column=0)
     window.mainloop()

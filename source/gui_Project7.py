@@ -1,12 +1,14 @@
+##Class that is beeing called when the user wants to user the GUI
+
 #Import the required Libraries
 from tkinter import *
 from window_Movies import *
 from window_Actors import *
 
 
-
+#Main function that is called when the program is being started
 def main():
-    #Main
+    #Create the main window
     window = Tk()
     window.title("Who's Who in Hollywood")
     window.configure(background="White")
