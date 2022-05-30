@@ -10,11 +10,11 @@ def handleUserInput():
     
 
     #Ask user what he or she would like to do (two options provided)
-    menuSelection = str(raw_input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'"))
+    menuSelection = str(input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'"))
     print(menuSelection)
     if menuSelection == "Movies":
         #If user wants to continue with 'Movies' further input is needed and therefore requested
-        movies = str(raw_input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies."))
+        movies = str(input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies."))
         
         #Seperate the user input into the three parts First Movie, Operator, Second Movie
         inputArr = inputArr = movies.split(" ")
@@ -26,7 +26,7 @@ def handleUserInput():
         
     elif menuSelection == "Actors":
         #If user wants to continue with 'Actors' further input is needed and therefore requested
-        actor = str(raw_input("Enter an actor's (first and last) name to display his or her co-actors."))
+        actor = str(input("Enter an actor's (first and last) name to display his or her co-actors."))
         print(actor + " acted togehter with " + str(handleOptionB(actor)))
     else:
         #If the input was incorrect notfy the user and call the function again
