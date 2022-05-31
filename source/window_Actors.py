@@ -12,17 +12,16 @@ def startActorsWindow():
     window = Tk()
     window.title("Who's Who in Hollywood")
     window.configure(background="White")
-    window.geometry("700x200")
+    window.geometry("770x200")
 
     #Create label
     Label(window, text="Enter an actor's (first and last) name to display his or her co-actors.", bg="white", fg="black", font="non 10").grid(row=1, column=0)
 
     #Crete label to announce that all Movies are displayed
-    Label(window, text="\nThese are all avaiable Actors:", bg="white", fg="black", font="non 10").grid(row=2, column=0)
+    Label(window, text="\nThese are all available actors:", bg="white", fg="black", font="non 10").grid(row=2, column=0)
 
     #Create a lable to display all movies
     Label(window, text=getAllActors() + "\n", bg="white", fg="black", font="non 10").grid(row=3, column=0)
-
 
     #Create entry label
     fstInput=Entry(window, width=50, bg="White")

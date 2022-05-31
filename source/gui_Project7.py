@@ -1,4 +1,4 @@
-##Class that is beeing called when the user wants to user the GUI
+##Class that is being called when the user wants to use the GUI
 
 #Import the required Libraries
 from tkinter import *

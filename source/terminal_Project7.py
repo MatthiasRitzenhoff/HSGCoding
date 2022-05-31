@@ -2,9 +2,6 @@
 
 from services import *
 
-
-
-
 #Function that asks for the user imput, calls the corresponding functions to generate the output and prints the output to the user
 def handleUserInput():
     
@@ -13,6 +10,7 @@ def handleUserInput():
     menuSelection = str(input("Do you want to get different intersections of actors depending on two movies? Answer with 'Movies.' If you prefer to have the co-actors of an actor displayed, answer with 'Actors.'"))
     print(menuSelection)
     if menuSelection == "Movies":
+        
         #If user wants to continue with 'Movies' further input is needed and therefore requested
         movies = str(input("Provide the names of two movies either sperated by '&' if you want to retrieve all the actors, '|' if you want the actors that have been a part of both movie crews, or '^' if you all actors that have been only part of one of the movies."))
         
@@ -30,10 +28,8 @@ def handleUserInput():
         print(actor + " acted togehter with " + str(handleOptionB(actor)))
     else:
         #If the input was incorrect notfy the user and call the function again
-        print("Invalied input, please follow the instructions. \n")
+        print("Invalid input, please follow the instructions. \n")
         handleUserInput()
-
-
 
 
 #Main function that is called when the programm is run

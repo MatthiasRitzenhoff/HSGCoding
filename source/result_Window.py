@@ -11,7 +11,7 @@ def startMoviesResultWindow(msg, result):
     window = Tk()
     window.title("Who's Who in Hollywood (Project 7)")
     window.configure(background="White")
-    window.geometry("200x100")
+    window.geometry("400x100")
 
     def formatResult(resultMSg, rawString):
         rsltString = ""

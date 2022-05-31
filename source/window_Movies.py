@@ -12,23 +12,21 @@ def startMoviesWindow():
     window = Tk()
     window.title("Who's Who in Hollywood")
     window.configure(background="White")
-    window.geometry("800x450")
+    window.geometry("880x500")
 
 
     #Create label
     Label(window, text="Provide the names of two movies either and one of the following operators: \n 1.)'&' if you want to retrieve the actors that played in both movies\n 2.)'|' if you want to retriev the actors that plaed in either of the two movies,\n3.)'^' if you all actors that have been only part of one of the movies.\n", bg="white", fg="black", font="non 10").grid(row=1, column=0)
 
     #Crete label to announce that all Movies are displayed
-    Label(window, text="These are all avaiable Movies:", bg="white", fg="black", font="non 10").grid(row=3, column=0)
+    Label(window, text="These are all available movies:", bg="white", fg="black", font="non 10").grid(row=3, column=0)
 
     #Create a lable to display all movies
     Label(window, text=getAllMovies() + "\n", bg="white", fg="black", font="non 10").grid(row=4, column=0)
 
-
     #Create label for movie #1
     Label(window, text="Enter the name of the first movie: ", bg="white", fg="black", font="non 10").grid(row=5, column=0)
 
-   
     #Create entry label for movie #1
     fstInput=Entry(window, width=50, bg="White")
     fstInput.grid(row=6, column=0)
@@ -66,9 +64,8 @@ def startMoviesWindow():
         
 
     #Create submit button
-    Button(window, text="Submit", width=6, command = evaluateInput).grid(row=13, column=0)
+    Button(window, text="Submit", width=6, command = evaluateInput).grid(row=13, column=0)    
 
-    
 
     window.mainloop()
 
