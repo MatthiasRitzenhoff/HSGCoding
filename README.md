@@ -1,5 +1,5 @@
 # HSGCoding: Who is Who in Hollywood
-This project allows the users to retreive results from a database. It is based on the assignment of Project 7.
+This project allows the users to retreive results from a database. It is based on the assignment of Project 7. To get a full introduction, we recommend to watch the `Video Introduction`.
 
 ## Getting started
 To run the programm, you have **two options**:
